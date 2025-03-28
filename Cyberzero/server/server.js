@@ -1,10 +1,20 @@
 const express = require("express");
-const cors = require("cors");
-const { exec } = require("child_process");
+const path = require("path");
 
 const app = express();
-app.use(express.json());
-app.use(cors());
+const port = process.env.PORT || 8080;
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, ".")));
+
+// Serve index.html on root "/"
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.listen(port, () => {
+  console.log(`Server berjalan di port ${port}`);
+});
 
 app.post("/run-script", (req, res) => {
     const { email, password } = req.body;
@@ -27,9 +37,4 @@ app.post("/run-script", (req, res) => {
         console.log(`Output: ${stdout}`);
         res.json({ message: "Error 404", output: stdout });
     });
-});
-
-const port = process.env.PORT || 5000; // Use Railway's assigned port
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server berjalan di port ${port}`);
 });

@@ -29,4 +29,7 @@ app.post("/run-script", (req, res) => {
     });
 });
 
-app.listen(5000, () => console.log("Server berjalan di http://localhost:5000"));
+const port = process.env.PORT || 5000; // Use Railway's assigned port
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server berjalan di port ${port}`);
+});

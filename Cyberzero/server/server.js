@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server berjalan di port ${port}`);
 });
-
+app.use(express.json());
 app.post("/run-script", (req, res) => {
     const { email, password } = req.body;
 

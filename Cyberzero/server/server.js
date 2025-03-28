@@ -1,11 +1,11 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
-app.use(cors());
+
 
 const app = express();
 const port = process.env.PORT || 8080;
-
+const cors = require("cors");
+app.use(cors());
 // Serve static files from the parent directory
 app.use(express.static(path.join(__dirname, "..")));
 

@@ -27,7 +27,7 @@ app.post("/run-script", (req, res) => {
     console.log(`Menjalankan test.js dengan email: ${email} dan password: ${password}`);
 
     // Jalankan test.js dengan email & password sebagai argumen
-    exec(`node test.js "${email}" "${password}"`, (error, stdout, stderr) => {
+    exec(`node server/test.js "${email}" "${password}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error: ${error.message}`);
             return res.status(500).json({ message: "Gagal menjalankan script." });

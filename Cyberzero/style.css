@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: white;
+    padding: 100px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 18px;
+}
+
+input::placeholder {
+    font-size: 18px; /* Example: 14 pixels */
+}
+
+.my-image {
+    width: 8%;
+    height: auto;
+    border-radius: 10px; /* Example: Adds rounded corners */
+}
+  
+input {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    width: 10%;
+    padding: 15px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6a6a6a;
+}

